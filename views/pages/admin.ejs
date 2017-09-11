@@ -1,0 +1,5 @@
+<a href="/admin/create"><h3>Create a New Post</h3></a>
+
+<% for(p in post){%>
+<a href=<%-`/post/${post[p].id}`%>><h4><%-post[p].title%></h4></a>
+<%}%>
