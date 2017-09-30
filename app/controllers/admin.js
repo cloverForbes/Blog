@@ -10,6 +10,23 @@ module.exports = {
         });
     },
 
+    getPosts : (req,res) => {
+      Post.find({}, (err, posts) => {
+          if(err){
+              res.send(err)
+          }
+
+          res.json(posts)
+      })
+    },
+
+    getPost : (req, res) => {
+        Post.findOne({_id : req.params.id}, (err, post) => {
+            if(err){res.send(err)}
+            res.json(post);
+        })
+    },
+
     newPost : (req, res) => {
         res.render('pages/create');
     },
