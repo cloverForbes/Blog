@@ -1,0 +1,18 @@
+body {
+    background: -webkit-linear-gradient(left, #94D3E7 0, #94D3E7 10%, #EFC9D7 10%, #EFC9D7 20%, white 20%, white 80%, #EFC9D7 80%, #EFC9D7 90%, #94D3E7 90%);
+}
+
+
+.blogTitle {
+    text-align: center;
+    font-size: 45px;
+}
+
+.blogSquare {
+    width: auto;
+    height: 170px;
+}
+
+.row{
+    padding-top: 25px;
+}
