@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-var express          = require('express'),
+const express          = require('express'),
     app              = express(),
     path             = require('path'),
     port             = process.env.PORT || 8080,
@@ -23,7 +23,7 @@ app.use(require('./app/routes'));
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.DB_URI);
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
     console.log('connection to mLab succesful');
