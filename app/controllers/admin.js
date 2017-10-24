@@ -44,5 +44,9 @@ module.exports = {
             if(err){res.send(err)}
             res.render('pages/post', {post: post});
         })
+    },
+
+    uploadFile : (req,res) => {
+        console.log(req);
     }
 };

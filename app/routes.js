@@ -14,6 +14,6 @@ router.get('/admin', adminController.getAllPosts);
 router.get('/admin/create', adminController.newPost);
 router.post('/admin/create', adminController.createPost);
 router.put('admin/:id/update');
-
+router.post('admin/create/upload', adminController.uploadFile);
 
 router.get('/post/:id', adminController.displayPost);
