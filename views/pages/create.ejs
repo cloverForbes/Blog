@@ -47,8 +47,8 @@
     });
 
     $('#upload-input').on('change', function(){
-
         let files = $(this).get(0).files;
+        let title = $('#title').val();
         console.log(files);
         if (files.length > 0){
             formData = new FormData();
@@ -57,7 +57,7 @@
             for (let i = 0; i < files.length; i++) {
                 let file = files[i];
 
-                formData.append('uploads[]', file, file.name);
+                formData.append('uploads[]', file, title + '.' + (file.name.split('.'))[1]);
             }
 
         }
@@ -67,10 +67,9 @@
     $('#submit').on('click', function () {
         let data = $('.ql-editor').html();
         let title = $('#title').val();
-        /*$.post('/admin/create',{body: data, title : title}, function(data){
+        $.post('/admin/create',{body: data, title : title}, function(data){
             console.log(data);
-        });*/
-
+        });
 
         $.ajax({
             url: '/admin/create/upload',
