@@ -8,8 +8,9 @@
 
 <!-- Create the editor container -->
 <div id="editor" style="height: 400px">
-    <p>Hello World!</p>
+    <p>Create a Post</p>
 </div>
+<input id="upload-input" type="file" name="upload[]">
 <button id="submit">Submit</button>
 
 <!-- Include the Quill library -->
@@ -45,12 +46,45 @@
         theme: 'snow'
     });
 
+    $('#upload-input').on('change', function(){
+
+        let files = $(this).get(0).files;
+        console.log(files);
+        if (files.length > 0){
+            formData = new FormData();
+
+
+            for (let i = 0; i < files.length; i++) {
+                let file = files[i];
+
+                formData.append('uploads[]', file, file.name);
+            }
+
+        }
+
+    });
+
     $('#submit').on('click', function () {
         let data = $('.ql-editor').html();
         let title = $('#title').val();
-
-        $.post('/admin/create',{body: data, title : title}, function(data){
+        /*$.post('/admin/create',{body: data, title : title}, function(data){
             console.log(data);
+        });*/
+
+
+        $.ajax({
+            url: '/admin/create/upload',
+            type: 'POST',
+            data: formData,
+            cache: false,
+            dataType: 'json',
+            processData: false, // Don't process the files
+            contentType: false, // Set content type to false as jQuery will tell the server its a query string request
+            success: function(data, textStatus, jqXHR)
+            {
+             console.log('upload successful!');
+            }
         });
-    });
+
+    })
 </script>
