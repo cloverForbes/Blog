@@ -1,4 +1,8 @@
 const Post = require('../models/post');
+const formidable = require('formidable');
+const fs = require('fs');
+const path = require('path');
+const mv = require('mv');
 
 module.exports = {
     getAllPosts : (req, res) => {
@@ -47,6 +51,19 @@ module.exports = {
     },
 
     uploadFile : (req,res) => {
-        console.log(req);
+       let form = new formidable.IncomingForm();
+       uploadDir = path.join(__dirname, '..', '..' ,'public', 'img');
+
+       form.on('file', function(field, file) {
+           mv(file.path, path.join(uploadDir, file.name), err => {
+               console.log(err);
+           });
+        });
+
+        form.on('end', function() {
+            res.end('success');
+        });
+
+        form.parse(req);
     }
 };
