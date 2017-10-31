@@ -11,6 +11,11 @@ body {
 .blogSquare {
     width: 100%;
     height: 170px;
+    text-align: center;
+}
+
+.blogSquare:hover{
+    background-color: #EFC9D7;
 }
 
 .row{
@@ -19,4 +24,36 @@ body {
 
 #editor {
     background-color: white;
+}
+
+.image{
+    height: 400px;
+    width: 1200px;
+    background-image: url("/img/trans.jpg");
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+}
+
+.squareTitle{
+    color: black;
+    margin-top: 15%;
+}
+
+
+a:hover{
+    text-decoration: none !important;
+}
+
+.title{
+    margin-top: 2.5%;
+    text-align: center;
+}
+
+.blogBody{
+    text-align: center;
+}
+
+.blogImage{
+    max-width: 60% !important;
 }

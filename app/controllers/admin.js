@@ -1,6 +1,5 @@
 const Post = require('../models/post');
 const formidable = require('formidable');
-const fs = require('fs');
 const path = require('path');
 const mv = require('mv');
 
@@ -56,6 +55,7 @@ module.exports = {
 
        form.on('file', function(field, file) {
            mv(file.path, path.join(uploadDir, file.name), err => {
+               console.log(path.join(uploadDir, file.name));
                console.log(err);
            });
         });

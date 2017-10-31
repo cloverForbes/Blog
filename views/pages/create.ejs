@@ -16,7 +16,6 @@
 <!-- Include the Quill library -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.quilljs.com/1.0.0/quill.js"></script>
-
 <!-- Initialize Quill editor -->
 <script>
     let toolbarOptions = [
@@ -48,7 +47,7 @@
 
     $('#upload-input').on('change', function(){
         let files = $(this).get(0).files;
-        let title = $('#title').val();
+        let title = $('#title').val().split(' ').join('');
         console.log(files);
         if (files.length > 0){
             formData = new FormData();

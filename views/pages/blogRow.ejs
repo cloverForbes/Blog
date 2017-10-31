@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-sm"></div>
+    <div class="col-sm">
+        <%-include('blogPost', {post: posts[0]}) %>
+    </div>
+    <div class="col-sm">
+        <% if(posts[1]){%>
+          <%-include('blogPost', {post: posts[1]}) %>
+        <%}%>
+    </div>
+    <div class="col sm"></div>
+</div>

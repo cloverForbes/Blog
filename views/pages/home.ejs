@@ -1,52 +1,19 @@
+
 <h1 class="blogTitle">The Transgineer</h1>
 
+
 <div class="row">
     <div class="col-md"></div>
-    <%- include('carousel') %>
+    <%- include('carousel', {posts: posts});%>
     <div class="col-md"></div>
 </div>
 
-<div class="row">
-    <div class="col-sm"></div>
-    <div class="col-sm">
-        <div class="blogSquare border border-dark">
 
-        </div>
-    </div>
-    <div class="col-sm">
-        <div class="blogSquare border border-dark">
-
-        </div>
-    </div>
-    <div class="col sm"></div>
-</div>
-
-<div class="row">
-    <div class="col-sm"></div>
-    <div class="col-sm">
-        <div class="blogSquare border border-dark">
-
-        </div>
-    </div>
-    <div class="col-sm">
-        <div class="blogSquare border border-dark">
-
-        </div>
-    </div>
-    <div class="col sm"></div>
-</div>
-
-<div class="row">
-    <div class="col-sm"></div>
-    <div class="col-sm">
-        <div class="blogSquare border border-dark">
-
-        </div>
-    </div>
-    <div class="col-sm">
-        <div class="blogSquare border border-dark">
-
-        </div>
-    </div>
-    <div class="col sm"></div>
-</div>
+<% for(let x = 0; x < posts.length; x+=2){ %>
+  <%if(posts[x+1]){%>
+    <%- include('blogRow', {posts: [posts[x], posts[x+1]]}) %>
+  <%}%>
+  <%if(!(posts[x+1])){%>
+    <%- include('blogRow', {posts: [posts[x]]}) %>
+  <%}%>
+<%}%>
