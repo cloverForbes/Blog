@@ -1,5 +1,12 @@
+
+
 <a href="/post/<%-post.id%>">
-    <div class="blogSquare border border-dark">
+    <div id="<%-post.id%>" class="blogSquare border border-dark">
         <h3 class="squareTitle"><%- post.title %></h3>
     </div>
 </a>
+
+
+<script>
+    $("#<%-post.id%>").css('background-image', "url('/img/<%- post.title%>.png')");
+</script>

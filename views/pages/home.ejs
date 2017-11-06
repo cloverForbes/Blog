@@ -9,7 +9,7 @@
 </div>
 
 
-<% for(let x = 0; x < posts.length; x+=2){ %>
+<% for(let x = 2; x < posts.length; x+=2){ %>
   <%if(posts[x+1]){%>
     <%- include('blogRow', {posts: [posts[x], posts[x+1]]}) %>
   <%}%>
